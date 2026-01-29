@@ -13,7 +13,7 @@ services:
       - shopify-net
 
   next-frontend:
-    build: ./client/my-app
+    build: ./client
     container_name: next-frontend
     restart: always
     ports:
