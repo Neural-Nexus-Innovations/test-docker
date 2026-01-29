@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  express-api:
+    build: ./server
+    container_name: express-api
+    restart: always
+    # We don't necessarily need to expose 5000 to the public, 
+    # but we will for testing purposes.
+    ports:
+      - "8003:5000"
+    networks:
+      - shopify-net
+
+  next-frontend:
+    build: ./client/my-app
+    container_name: next-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://express-api:5000
+    depends_on:
+      - express-api
+    networks:
+      - shopify-net
+
+networks:
+  shopify-net:
+    driver: bridge
