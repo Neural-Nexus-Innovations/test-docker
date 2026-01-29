@@ -12,4 +12,4 @@ app.get('/api/data', (req, res) => {
     });
 });
 
-app.listen(8003, () => console.log('API running on port 8003'));
+app.listen(8003, '0.0.0.0', () => console.log('API running on port 8003'));
