@@ -8,7 +8,7 @@ services:
     # We don't necessarily need to expose 5000 to the public, 
     # but we will for testing purposes.
     ports:
-      - "8003:5000"
+      - "8003:8003"
     networks:
       - shopify-net
 
